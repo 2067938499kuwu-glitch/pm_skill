@@ -1,0 +1,10 @@
+interface:
+  display_name: "需求澄清与原型助手"
+  short_description: "持续追问高影响不确定项，显示需求进度，并输出完整需求、交互逻辑和文字版低保真原型。"
+policy:
+  products:
+    - chatgpt
+    - codex
+    - api
+    - atlas
+  allow_implicit_invocation: true
