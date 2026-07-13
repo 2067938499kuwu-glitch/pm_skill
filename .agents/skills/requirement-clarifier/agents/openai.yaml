@@ -1,6 +1,6 @@
 interface:
   display_name: "产品需求分析与原型助手"
   short_description: "自由描述需求后，按复杂度完成目标、流程、页面、交互和验收"
-  default_prompt: "使用 $requirement-clarifier 分析当前产品需求。九步流程仅作为内部检查框架，不要机械执行九轮对话；优先提取已有信息，每轮最多提出3至5个关键问题。清空真正的P0阻塞后，根据需求复杂度输出快速、标准或深度方案。除非我明确要求实现Demo，否则不要修改代码。"
+  default_prompt: "使用项目内的 $requirement-clarifier 梳理当前产品需求；默认采用标准模式，优先提取已有信息并只追问真实 P0，按我明确要求的交付层次输出，未经明确要求不要生成 Codex 提示词或修改代码。"
 policy:
   allow_implicit_invocation: true
