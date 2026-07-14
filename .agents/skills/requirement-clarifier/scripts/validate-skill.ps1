@@ -13,6 +13,7 @@ $requiredFiles = @(
     'SKILL.md',
     'agents/openai.yaml',
     'references/questioning-framework.md',
+    'references/project-association.md',
     'references/final-output-template.md',
     'tests/test-cases.md',
     'tests/release-checklist.md'
@@ -71,7 +72,10 @@ $requiredRulePatterns = @(
     '\u4EC5\u5728\u65B0\u589E\u9875\u9762.*\u4E0D\u5355\u72EC\u6784\u6210\s*P0',
     'G\u3001R\u3001P\u3001I\u3001AC.*\u53EF\u6838\u9A8C\u7684\u5173\u8054',
     '\u4EA7\u54C1\u7ECF\u7406\u80FD\u529B\u590D\u76D8',
-    '\u53EA\u8981\s*Codex\s*\u539F\u578B\u63D0\u793A\u8BCD.*\u4E0D\u9644\u52A0\u590D\u76D8'
+    '\u53EA\u8981\s*Codex\s*\u539F\u578B\u63D0\u793A\u8BCD.*\u4E0D\u9644\u52A0\u590D\u76D8',
+    '\u9879\u76EE\u5173\u8054\u65B9\u5F0F.*\u4E0D\u662F\s*P0',
+    '\u4E0D\u5173\u8054\u9879\u76EE.*\u4E0D\u5F97.*\u5168\u65B0\u9700\u6C42',
+    '\u672A\u9009\u62E9\u65F6.*\u4E24\u9009\u4E00'
 )
 foreach ($pattern in $requiredRulePatterns) {
     if ($skillText -notmatch $pattern) {
@@ -87,7 +91,7 @@ $duplicates = $headingIds | Group-Object | Where-Object Count -gt 1
 foreach ($duplicate in $duplicates) {
     Add-ValidationError "Duplicate test heading: $($duplicate.Name)"
 }
-foreach ($requiredTest in @('TC-17', 'TC-18', 'TC-19', 'TC-20', 'TC-21')) {
+foreach ($requiredTest in @('TC-17', 'TC-18', 'TC-19', 'TC-20', 'TC-21', 'TC-22', 'TC-23', 'TC-24', 'TC-25')) {
     if ($requiredTest -notin $headingIds) {
         Add-ValidationError "Missing regression test: $requiredTest"
     }
