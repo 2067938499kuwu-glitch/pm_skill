@@ -69,7 +69,9 @@ $requiredRulePatterns = @(
     '\u5FEB\u901F\u6A21\u5F0F\u6BCF\u8F6E\u6700\u591A\s*3\s*\u4E2A',
     'Codex\s*\u539F\u578B\u63D0\u793A\u8BCD.*\u4EC5\u5728\u7528\u6237\u660E\u786E\u8981\u6C42',
     '\u4EC5\u5728\u65B0\u589E\u9875\u9762.*\u4E0D\u5355\u72EC\u6784\u6210\s*P0',
-    'G\u3001R\u3001P\u3001I\u3001AC.*\u53EF\u6838\u9A8C\u7684\u5173\u8054'
+    'G\u3001R\u3001P\u3001I\u3001AC.*\u53EF\u6838\u9A8C\u7684\u5173\u8054',
+    '\u4EA7\u54C1\u7ECF\u7406\u80FD\u529B\u590D\u76D8',
+    '\u53EA\u8981\s*Codex\s*\u539F\u578B\u63D0\u793A\u8BCD.*\u4E0D\u9644\u52A0\u590D\u76D8'
 )
 foreach ($pattern in $requiredRulePatterns) {
     if ($skillText -notmatch $pattern) {
@@ -85,7 +87,7 @@ $duplicates = $headingIds | Group-Object | Where-Object Count -gt 1
 foreach ($duplicate in $duplicates) {
     Add-ValidationError "Duplicate test heading: $($duplicate.Name)"
 }
-foreach ($requiredTest in @('TC-17', 'TC-18', 'TC-19', 'TC-20')) {
+foreach ($requiredTest in @('TC-17', 'TC-18', 'TC-19', 'TC-20', 'TC-21')) {
     if ($requiredTest -notin $headingIds) {
         Add-ValidationError "Missing regression test: $requiredTest"
     }
