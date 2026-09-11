@@ -1,6 +1,6 @@
 interface:
   display_name: "产品需求分析与原型助手"
-  short_description: "自由描述需求后，按复杂度完成目标、流程、页面、交互和验收"
-  default_prompt: "使用项目内的 $requirement-clarifier 梳理当前产品需求；需求可能涉及已有系统时，先让我自主选择关联项目分析或不关联项目分析，再按所选证据范围、默认标准模式和明确交付层次推进，只追问真实 P0，未经明确要求不要生成 Codex 提示词或修改代码。"
+  short_description: "梳理或评审产品需求，覆盖目标、流程、交付载体、风险与可测试验收"
+  default_prompt: "使用项目内的 $requirement-clarifier 梳理或评审当前产品需求，先识别交付意图、读取授权与证据边界，只追问真实 P0；关联项目时先建立安全文件清单。正式需求方案完成后，对尚未决定且适用的 Codex 页面提示词和产品经理能力复盘提供一次后续输出选择，用户确认前不生成；未经明确要求不修改代码。"
 policy:
   allow_implicit_invocation: true

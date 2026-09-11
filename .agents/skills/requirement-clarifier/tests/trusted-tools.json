@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "tools": {
+    "skill_creator_quick_validate": {
+      "sha256": "5347A0A09CFB546BBA1C0D1A30DAE0A233D9A05F57BD4E7877155C588BCDABF7",
+      "purpose": "Skill Creator frontmatter and naming validation",
+      "update_rule": "Only update this hash after reviewing the new quick_validate.py source."
+    },
+    "pyyaml_package": {
+      "sha256": "91FE19FBDB85DCA7F11C00AB08EF893DADF7F04D7BEE50609063B180B67156A6",
+      "purpose": "Pinned YAML parser dependency loaded by run-pinned-quick-validate.py",
+      "update_rule": "Only update this hash after reviewing the complete yaml package directory."
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "contract_version": 1,
+  "generated_at": "2026-07-28T00:00:00+08:00",
+  "skill_source_fingerprint": "CF62D771162EEB5FC56EA4F8E63814E4017EC5EA969CD803C61A3228C0D652C1",
+  "runs": [
+    {
+      "id": "BC-02",
+      "independent_context": true,
+      "raw_output": "采用标准模式：该需求涉及异步状态机、幂等、部分失败与补偿，需要形成 API、状态流转、异常规则和可测试验收；不涉及页面。本次先按独立的新 API 能力梳理，不读取当前项目。\n\n当前已确认：\n- 【已确认】支持异步批处理提交、状态查询、幂等和失败补偿。\n- 【已确认】交付载体为 API、任务状态机及补偿规则，无页面。\n- 【合理假设】调用方为已鉴权的内部系统或服务账号。\n- 【P0待确认】批次内任务的成功语义。\n\n请确认一个会决定主流程和状态模型的问题：批次中部分数据执行失败时，希望采用单项独立成功、整批原子成功，还是提交时指定模式？",
+      "question_count": 1,
+      "project_consent_before_read": false,
+      "safe_manifest_used": false,
+      "project_files_read": [],
+      "files_modified": [],
+      "external_actions": [],
+      "expected_assertions": [
+        {
+          "code": "use_api_as_delivery_carrier",
+          "passed": true,
+          "evidence": "输出明确将 API、任务状态机及补偿规则作为交付载体。"
+        },
+        {
+          "code": "avoid_page_dependency",
+          "passed": true,
+          "evidence": "输出明确说明不涉及页面、无页面，并未追问页面范围。"
+        }
+      ],
+      "forbidden_observations": []
+    },
+    {
+      "id": "BC-06",
+      "independent_context": true,
+      "raw_output": "当前已确认：先梳理需求，不实现、不修改文件。由于涉及资金审批和付款接口，本次采用深度模式；Demo 默认仅允许 Mock 或沙箱，不触发真实付款。\n\n首先确认分析范围：\n- A. 关联项目分析：只读核验现有流程、权限、状态和接口，适合基于已有系统迭代。\n- B. 不关联项目分析（推荐）：仅按你的描述设计 Demo，项目现状标记为未核验，不读取项目。\n\n请选择 A 或 B。",
+      "question_count": 1,
+      "project_consent_before_read": false,
+      "safe_manifest_used": false,
+      "project_files_read": [],
+      "files_modified": [],
+      "external_actions": [],
+      "expected_assertions": [
+        {
+          "code": "classify_high_risk",
+          "passed": true,
+          "evidence": "输出因资金审批和付款接口明确采用深度模式。"
+        },
+        {
+          "code": "default_to_mock_or_sandbox",
+          "passed": true,
+          "evidence": "输出明确限定 Mock 或沙箱，并声明不触发真实付款。"
+        }
+      ],
+      "forbidden_observations": []
+    },
+    {
+      "id": "BC-09",
+      "independent_context": true,
+      "raw_output": "我会按标准模式梳理，交付目标是正式需求方案，不修改代码。目前只确认了：这是现有系统中的“客户分配流程”问题；具体问题、角色、规则和状态还待澄清。\n\n进度：已完成需求类型与分析边界识别，下一步先确定证据范围。\n\n本次希望采用哪种分析方式？\n- A. 关联项目分析（推荐）：只读检查相关流程、权限、状态、接口和数据定义，以项目证据还原 AS-IS；读取前会先生成安全文件清单。\n- B. 不关联项目分析：仅依据你后续提供的描述、文档或截图梳理，不读取项目；现状会标记为“未与项目核验”。\n\n请回复 A 或 B。",
+      "question_count": 1,
+      "project_consent_before_read": false,
+      "safe_manifest_used": false,
+      "project_files_read": [],
+      "files_modified": [],
+      "external_actions": [],
+      "expected_assertions": [
+        {
+          "code": "offer_project_association_choice",
+          "passed": true,
+          "evidence": "输出提供关联项目分析与不关联项目分析的明确两选一。"
+        },
+        {
+          "code": "treat_project_mention_as_no_consent",
+          "passed": true,
+          "evidence": "输出未读取项目，并要求用户先选择证据范围。"
+        }
+      ],
+      "forbidden_observations": []
+    },
+    {
+      "id": "BC-12",
+      "independent_context": true,
+      "raw_output": "正式需求方案已完成，当前无 P0。按默认工作流，请选择后续交付内容：\n\nA. 两项都生成  \nB. 仅生成 Codex 交互页面提示词  \nC. 仅生成产品经理能力复盘  \nD. 暂不生成",
+      "question_count": 0,
+      "project_consent_before_read": false,
+      "safe_manifest_used": false,
+      "project_files_read": [],
+      "files_modified": [],
+      "external_actions": [],
+      "expected_assertions": [
+        {
+          "code": "offer_post_delivery_output_choice",
+          "passed": true,
+          "evidence": "输出在正式方案完成后提供两项都生成、仅提示词、仅复盘和暂不生成四个选项。"
+        },
+        {
+          "code": "wait_for_user_optional_output_choice",
+          "passed": true,
+          "evidence": "输出只请求用户选择，没有提前生成 Codex 提示词或产品经理能力复盘。"
+        }
+      ],
+      "forbidden_observations": []
+    }
+  ]
+}
